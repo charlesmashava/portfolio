@@ -1,0 +1,119 @@
+
+.navbar-home{
+    background-color: #3bc931;
+   
+    margin: 7% 14%;
+}
+.links{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.20rem;
+    font-weight: 300;
+}
+b, strong {
+    font-weight: 900;
+    font-size: 48px;
+    color: white;
+}
+.our-team{
+    color :black;
+}
+.ourmission{
+    background-color: #3bc931;
+}
+.social-link {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #3bc931;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    border-radius: 50%;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+  }
+  
+  .social-link:hover,
+  .social-link:focus {
+    background: #3bc931;;
+    text-decoration: none;
+    color: #555;
+  }
+  
+  .lock1 {
+    width: 50%;
+    position: relative;
+    top: -10px;
+}
+
+
+.navbar {
+    margin: 100px;
+    padding: 0 2px 4rem;
+}
+.brand-title{
+    font-family: 'Croissant One', cursive;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+@media (max-width :425px) {
+    .brand-title {
+        font-family: 'Croissant One', cursive;
+        font-size: 3rem;
+        font-weight: 700;
+        margin: 1px;
+    }
+    
+}
+
+@media (max-width :725px) {
+    .brand-title {
+        font-family: 'Croissant One', cursive;
+        font-size: 3rem;
+        font-weight: 700;
+        margin: -20px;
+    }
+    
+}
+
+
+
+
+@media(max-width :325px){
+    .navbar-toggler-icon {
+        display: inline-block;
+        width: 1.5em;
+        height: 1.5em;
+        vertical-align: middle;
+        content: "";
+        background: 50%/100% 100% no-repeat;
+        position: relative;
+        top: 30px;
+    }
+    
+    .brand-title {
+        font-family: 'Croissant One', cursive;
+        font-size: 3rem;
+        font-weight: 700;
+        margin: -80px;
+    }
+    
+
+}
+
+
+@media(max-width :320px){
+.navbar-nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    font-size: 2;
+    list-style: none;
+    position: relative;
+    right: 80px;
+}
+}

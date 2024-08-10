@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Currency Converter App </title>
+  <link rel="stylesheet" href="currency_converter/style.css">
+  <link rel="stylesheet" href="currency_converter/homepage.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<style>
+  .fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+</style>
+
+<body>
+  
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo" style="font-family: 'DM Sans', sans-serif;">
+        <img src="currency_converter/images/Chale Logo.png" width="64" height="64" alt="Cryptex logo">
+        Chale
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="chale.html" class="navbar-link active" data-nav-link style="font-family: 'DM Sans', sans-serif; background-color: #131315;">Homepage</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link" data-nav-link style="font-family: 'DM Sans', sans-serif; background-color: #3874ff;">Currency Converter</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="market.html" class="navbar-link" data-nav-link style="font-family: 'DM Sans', sans-serif;">Markets</a>
+          </li>
+          <li class="navbar-item">
+            <a href="../index.html"
+              class="navbar-link" data-nav-link>Portfolio</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </button>
+    
+    </div>
+  </header>
+
+<div class="wrapper fade-in">
+  <header>Currency Converter</header>
+  <form action="#">
+        <div class="amount">
+          <label for="amountInput">Enter Amount</label>
+          <input type="text" value="1" id="amountInput">
+        </div>
+        <div class="drop-list">
+          <div class="from">
+            <label for="fromCurrency">From</label>
+            <div class="select-box">
+              <img src="https://flagcdn.com/48x36/us.png" alt="flag">
+              <select id="fromCurrency"> <!-- Options tag are inserted from JavaScript --> </select>
+            </div>
+          </div>
+          <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+          <div class="to">
+            <label for="toCurrency">To</label>
+            <div class="select-box">
+              <img src="https://flagcdn.com/48x36/np.png" alt="flag">
+              <select id="toCurrency"> <!-- Options tag are inserted from JavaScript --> </select>
+            </div>
+          </div>
+        </div>
+        <div id="exchangeRate" class="exchange-rate">Getting exchange rate...</div>
+        <label for="convertedAmount">Converted Amount</label>
+        <input type="text" id="convertedAmount" disabled><br><br>
+        <button id="getButton">CONVERT</button>
+      </form>
+    </div>
+  </form>
+</div>
+
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container fade-in" style="margin-top: 15px; margin-left: 50px;">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="white-text">Have a good read while converting.</span></a></div>
+  <script src="currency_converter/js/news.js"></script>
+</div>
+<!-- TradingView Widget END -->
+
+  <script src="currency_converter/js/country-list.js"></script>
+  <script src="currency_converter/js/script.js"></script>
+
+</body>
+
+</html>

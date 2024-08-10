@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>CanIDrive - PWD Website for Driving</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .question-container {
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          padding: 20px;
+          margin-bottom: 20px;
+          display: none;
+        }
+    
+        .choices button {
+          display: block;
+          width: auto;
+          margin-bottom: 10px; /* Adjust this value for spacing */
+          margin-top: 10px;
+        }
+    
+        .choices {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+    
+        #results-container {
+          display: none;
+        }
+    
+        .shadow-container {
+          background-color: #f8f9fa;
+          border-radius: 10px;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+          padding: 20px;
+          margin-bottom: 20px;
+        }
+    
+        #try-again-btn {
+          margin-top: 20px;
+        }
+      </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner"></div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark px-5 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>15 Chale Street, Cavite, Philippines</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>canidrive@gmail.com</small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+            <a href="index.html" class="navbar-brand p-0">
+                <h1 class="m-0"><i class="fa fa-user-tie me-2"></i>Startup</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">Can I drive?</a>
+                    <a href="service.html" class="nav-item nav-link">Car Suggestions</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">LTO Reviewer</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="enreviewer.html" class="dropdown-item">English Reviewer</a>
+                            <a href="tagreviewer.html" class="dropdown-item active">Tagalog Reviewer</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Registration</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="price.html" class="dropdown-item">Pricing Plan</a>
+                            <a href="feature.html" class="dropdown-item">Our features</a>
+                            <a href="team.html" class="dropdown-item">Team Members</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="quote.html" class="dropdown-item">Free Quote</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">LTO Near Me</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
+            <div class="row py-5">
+                <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+                    <h1 class="display-4 text-white animated zoomIn">Tagalog Reviewer 20 Questions</h1>
+                    <a href="" class="h5 text-white">Home</a>
+                    <i class="far fa-circle text-white px-2"></i>
+                    <a href="" class="h5 text-white">Tagalog Reviewer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Full Screen Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center justify-content-center">
+                    <div class="input-group" style="max-width: 600px;">
+                        <input type="text" class="form-control bg-transparent border-primary p-3" placeholder="Type search keyword">
+                        <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Full Screen Search End -->
+
+    <div class="container mt-5">
+        <div id="question1" class="question-container" style="display: block;">
+            <h3>Habang nagmamaneho, dapat kang tumingin sa side and rear view mirror 
+                ng:</h3>
+            <div class="choices">
+              <button class="btn btn-primary choice" onclick="checkAnswer(1, 'a')">Mabilis / madalian</button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(1, 'b')">Hanggang gusto mo </button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(1, 'c')">Hindi kukulangin sa minute</button>
+            </div>
+          </div>
+        
+          <div id="question2" class="question-container">
+            <h3> Maaari kang lumusot (overtake) sa kanang bahagi ng sasakyan kung:
+            </h3>
+            <div class="choices">
+              <button class="btn btn-primary choice" onclick="checkAnswer(2, 'a')">Ang high
+                way ay may dalawa o higit pang linya patungo sa isang direksyon</button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(2, 'b')">Ang kalsada ay salubungang-daan (two-way)</button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(2, 'c')">Malapad ang bangketa </button>
+            </div>
+          </div>
+        
+          <div id="question3" class="question-container">
+            <h3>Ang mahuhuling lasing sa alak o ipinagbabawal na gamut ay may parusang:</h3>
+            <div class ="choices">
+              <button class="btn btn-primary choice" onclick="checkAnswer(3, 'a')">Pagsuspinde ng lisensya </button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(3, 'b')">Multa o Pagkabilango</button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(3, 'c')">Tama lahat ng sagot</button>
+            </div>
+          </div>
+        
+          <div id="question4" class="question-container">
+            <h3> Bago umalis sa paradahan, dapat mong:</h3>
+            <div class="choices">
+              <button class="btn btn-primary choice" onclick="checkAnswer(4, 'a.')">Suriin ang paligid bago magpatakbo </button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(4, 'b.')">Bumusina </button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(4, 'c')">Magpatakbo agad </button>
+            </div>
+          </div>
+        
+          <div id="question5" class="question-container">
+            <h3>Ang tamang gulang sa pagkuha ng lisensya Non-Professional ay:</h3>
+            <div class="choices">
+              <button class="btn btn-primary choice" onclick="checkAnswer(5, 'a')">18 taong gulang</button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(5, 'b')">16 taong gulang</button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(5, 'c')">17 taong gulang</button>
+            </div>
+          </div>
+        
+          <div id="question6" class="question-container">
+            <h3>Matapos kang lumampas (overtake) at nais mong bumalik sa 
+                pinanggalingang linya ng ligtas, kailangan:
+                </h3>
+            <div class="choices">
+              <button class="btn btn-primary choice" onclick="checkAnswer(6, 'a')">Tingnan sa 'rear view mirror' ang iyong nilagpasan</button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(6, 'b')">Lumingon sa iyong nilagpasan</button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(6, 'c')"> Huminto </button>
+            </div>
+          </div>
+        
+          <div id="question7" class="question-container">
+            <h3>Sa isang interseksyon na may STOP sign, dapat kang:</h3>
+            <div class="choices">
+              <button class="btn btn-primary choice" onclick="checkAnswer(7, 'a')">Magmarahan at magpatuloy kung walang panganib</button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(7, 'b')">Huminto at magpatuloy kung walang panganib </button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(7, 'c')">Magbigay daan sa mga sasakyan mula sa kanan o kaliwa at 
+                magpatuloy kung walang panganib </button>
+            </div>
+          </div>
+        
+          <div id="question8" class="question-container">
+            <h3> Ang pagkakaroon ng lisensya ay isang:</h3>
+            <div class="choices">
+              <button class="btn btn-primary choice" onclick="checkAnswer(8, 'a')">Karangalan </button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(8, 'b')">Pribilehiyo </button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(8, 'c')">Karapatan</button>
+            </div>
+          </div>
+        
+          <div id="question9" class="question-container">
+            <h3> Ang lisensyang Non-Professional ay para sa lamang sa:</h3>
+            <div class="choices">
+              <button class="btn btn-primary choice" onclick="checkAnswer(9, 'a')">Mga pribadong sasakyan</button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(9, 'b')">Pampaseherong sasakyan</button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(9, 'c')">Anumang uri ng sasakyan </button>
+            </div>
+          </div>
+        
+          <div id="question10" class="question-container">
+            <h3>Ano ang dapat mong ihanda kung malayo ang biyahe?
+            </h3>
+            <div class="choices">
+              <button class="btn btn-primary choice" onclick="checkAnswer(10, 'a')">Maghanda ng kagamitang pangkumpuni ng sasakyan kung 
+                masisiraan</button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(10, 'b')"> Planuhin ang ruta at ikondisyon ang sasakyan</button>
+              <button class="btn btn-primary choice" onclick="checkAnswer(10, 'c')">Tama lahat ang nasa itaas</button>
+            </div>
+          </div>
+
+  <div id="question11" class="question-container">
+    <h3>Kung paparada ng paahon sa may bangketa, dapat mong ipihit ang gulong:
+    </h3>
+    <div class="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(11, 'a')">Papuntang bangketa </button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(11, 'b')">Papalayo sa bangketa</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(11, 'c')"> Kahit anong direksyon</button>
+    </div>
+  </div>
+
+  <div id="question12" class="question-container">
+    <h3>Ang sasakyan ay nakaparada (parked) kung:</h3>
+    <div class="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(12, 'a')"> Nakatigil ng matagal at nagsasakay ng pasahero </button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(12, 'b')"> Nakatigil ng matagal at nagbababa ng pasahero</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(12, 'c')">Nakatigil ng matagal at patay ang makina</button>
+    </div>
+  </div>
+
+  <div id="question13" class="question-container">
+    <h3>Ano ang kahulugan ng patay-sinding kulay pulang ilaw trapiko?</h3>
+    <div class ="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(13, 'a')">Maghintay ng berdeng ilaw</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(13, 'b')">Bagalan ang takbo at tumuloy ng maingat</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(13, 'c')">Huminto at magpatuloy kung ligtas</button>
+    </div>
+  </div>
+
+  <div id="question14" class="question-container">
+    <h3>Anong dapat gawin bago lumiko sa kanan o kaliwa?</h3>
+    <div class="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(14, 'a.')">Biglang lumiko at bumusina</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(14, 'b.')"> Magbigay ng hudyat o senyas na hindi kukulangin sa 30 meters</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(14, 'c')">Ipagwalang-bahala ang hudyat
+    </button>
+    </div>
+  </div>
+
+  <div id="question15" class="question-container">
+    <h3>Sa paglipat-lipat ng linya, dapat sumenyas, tingnan ang rear view mirror 
+        at:</h3>
+    <div class="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(15, 'a')">Tingnan kung may parating na sasakyan</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(15, 'b')">Bumusina </button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(15, 'c')">Sindihan ang headlight</button>
+    </div>
+  </div>
+
+  <div id="question16" class="question-container">
+    <h3>Sa may highway na may dalawang guhit, maaari kang lumusot (overtake)
+        kung sa iyong panig ay may:        
+    </h3>
+    <div class="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(16, 'a')"> Tuloy-tuloy na puting guhit </button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(16, 'b')"> Putol-putol na dilaw na guhit</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(16, 'c')">Tuloy-tuloy na dilaw na guhit </button>
+    </div>
+  </div>
+
+  <div id="question17" class="question-container">
+    <h3>Ang hindi pagsunod sa ilaw trapiko ay:</h3>
+    <div class="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(17, 'a')">Nagpapatunay na mahusay kang drayber </button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(17, 'b')">Maaaring masangkot sa iyo ang aksidente</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(17, 'c')">Nakatipid sa gasolina</button>
+    </div>
+  </div>
+
+  <div id="question18" class="question-container">
+    <h3>Mapanganib ang palikong kaliwa kaysa sa kanan sapagkat:</h3>
+    <div class="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(18, 'a')">Mabilis ang sasakyang galing sa kaliwa</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(18, 'b')">Kailangang maging listo sa mga sasakyang nagmumula sa kaliwa o 
+        kanan</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(18, 'c')"> Maraming linya ang kalsada</button>
+    </div>
+  </div>
+
+  <div id="question19" class="question-container">
+    <h3>. Ang pinakaligtas sa ultimatum kahit ikaw ang may karapatan sa daan ay:</h3>
+    <div class="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(19, 'a')">Huwag ipilit ang karapatan</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(19, 'b')">Bumusina </button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(19, 'c')"> Laging ipilit ang karapatan</button>
+    </div>
+  </div>
+
+  <div id="question20" class="question-container">
+    <h3>Sa mga rotonda, alin ang may karapatan sa daan?</h3>
+    <div class="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(20, 'a')">Ang sasakyang papasok pa lamang sa rotunda</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(20, 'b')">Ang sasakyang nasa paligid ng rotonda</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(20, 'c')"> Ang sasakyang nakaharap sa berdeng ilaw </button>
+    </div>
+  </div>
+
+  <div class="text-center">
+</div>
+
+<div id="results-container" class="mt-3">
+  <div class="shadow-container">
+    <h3>Results</h3>
+    <div id="results"></div>
+    <button id="try-again-btn" class="btn btn-primary" onclick="restartQuiz()">Try Again</button>
+  </div>
+</div>
+</div>
+
+<script>
+let currentQuestion = 1;
+const totalQuestions = 20;
+const answers = {
+  1: null,
+  2: null,
+  3: null,
+  4: null,
+  5: null,
+  6: null,
+  7: null,
+  8: null,
+  9: null,
+  10: null,
+  11: null,
+  12: null,
+  13: null,
+  14: null,
+  15: null,
+  16: null,
+  17: null,
+  18: null,
+  19: null,
+  20: null,
+};
+
+function checkAnswer(question, choice) {
+  answers[question] = choice;
+
+  // Display the results after the final question
+  if (currentQuestion === totalQuestions) {
+    showResults();
+  } else {
+    // Move to the next question
+    document.getElementById(`question${currentQuestion}`).style.display = 'none';
+    currentQuestion++;
+    document.getElementById(`question${currentQuestion}`).style.display = 'block';
+  }
+}
+
+function getCorrectAnswer(question) {
+  // Replace this with the logic to get the correct answer for each question
+  switch (question) {
+    case 1:
+      return 'a';
+    case 2:
+      return 'a';
+    case 3:
+      return 'c';
+    case 4:
+      return 'a';
+    case 5:
+      return 'c';
+    case 6:
+      return 'a';
+    case 7:
+      return 'a';
+    case 8:
+      return 'b';
+    case 9:
+      return 'a';
+    case 10:
+      return 'c';;
+    case 11:
+      return 'b';
+    case 12:
+      return 'c';
+    case 13:
+      return 'c';
+    case 14:
+      return 'b';
+    case 15:
+      return 'a';
+    case 16:
+      return 'b';
+    case 17:
+      return 'b';
+    case 18:
+      return 'b';
+    case 19:
+      return 'a';
+    case 20:
+      return 'b';
+    default:
+      return '';
+  }
+}
+
+function showResults() {
+  let correctCount = 0;
+  let resultHtml = '';
+
+  for (let i = 1; i <= totalQuestions; i++) {
+    const isCorrect = answers[i] === getCorrectAnswer(i);
+    resultHtml += `<p>Question ${i}: ${answers[i]} (${isCorrect ? 'Correct' : 'Incorrect'})</p>`;
+    if (isCorrect) {
+      correctCount++;
+    }
+  }
+
+  resultHtml += `<p>Total Correct: ${correctCount}</p>`;
+  resultHtml += `<p>Total Incorrect: ${totalQuestions - correctCount}</p>`;
+
+  document.getElementById('results').innerHTML = resultHtml;
+  document.getElementById('question10').style.display = 'none';
+  document.getElementById('results-container').style.display = 'block';
+}
+
+function restartQuiz() {
+  // Reset variables and display the first question
+  currentQuestion = 1;
+  for (let i = 1; i <= totalQuestions; i++) {
+    answers[i] = null;
+    document.getElementById(`question${i}`).style.display = 'none';
+  }
+  document.getElementById('question1').style.display = 'block';
+  document.getElementById('results-container').style.display = 'none';
+}
+</script>
+
+
+    <!-- Vendor Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5 mb-5">
+            <div class="bg-white">
+                <div class="owl-carousel vendor-carousel">
+                    <img src="img/vendor-1.jpg" alt="">
+                    <img src="img/vendor-2.jpg" alt="">
+                    <img src="img/vendor-3.jpg" alt="">
+                    <img src="img/vendor-4.jpg" alt="">
+                    <img src="img/vendor-5.jpg" alt="">
+                    <img src="img/vendor-6.jpg" alt="">
+                    <img src="img/vendor-7.jpg" alt="">
+                    <img src="img/vendor-8.jpg" alt="">
+                    <img src="img/vendor-9.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Vendor End -->
+    
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-primary p-4">
+                        <a href="index.html" class="navbar-brand">
+                            <h1 class="m-0 text-white"><i class="fa fa-user-tie me-2"></i>CanIDrive</h1>
+                        </a>
+                        <p class="mt-3 mb-4">CanIDrive is a website for PWDs to learn information about driving in the Philippines. We provide driving information, reviewers, and LTO registrations directly to the LTO portal.</p>
+                        <form action="">
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <div class="row gx-5">
+                        <div class="col-lg-4 col-md-12 pt-5 mb-5">
+                            <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                                <h3 class="text-light mb-0">Get In Touch</h3>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-geo-alt text-primary me-2"></i>
+                                <p class="mb-0">15 Chale Street, Cavite, Philippines</p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-envelope-open text-primary me-2"></i>
+                                <p class="mb-0">canidrive@gmail.com</p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-telephone text-primary me-2"></i>
+                                <p class="mb-0">+012 345 6789</p>
+                            </div>
+                            <div class="d-flex mt-4">
+                                <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                                <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                                <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                                <a class="btn btn-primary btn-square" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                            <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                                <h3 class="text-light mb-0">Quick Links</h3>
+                            </div>
+                            <div class="link-animated d-flex flex-column justify-content-start">
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Can I Drive?</a>
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Car Suggestions</a>
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>LTO Reviewer</a>
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Registration</a>
+                                <a class="text-light" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>LTO Near Me</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                            <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                                <h3 class="text-light mb-0">Popular Links</h3>
+                            </div>
+                            <div class="link-animated d-flex flex-column justify-content-start">
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Can I Drive?</a>
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Car Suggestions</a>
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>LTO Reviewer</a>
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Registration</a>
+                                <a class="text-light" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>LTO Near Me</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid text-white" style="background: #061429;">
+        <div class="container text-center">
+            <div class="row justify-content-end">
+                <div class="col-lg-8 col-md-6">
+                    <div class="d-flex align-items-center justify-content-center" style="height: 75px;">
+                        <p class="mb-0">&copy; <a class="text-white border-bottom" href="#">CanIDrive</a>. All Rights Reserved. 
+						
+						Designed by CanIDrive Team
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

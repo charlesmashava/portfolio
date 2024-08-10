@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Bootstrap Quiz</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .question-container {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .choices button {
+      display: block;
+      width: auto;
+      margin-bottom: 10px; /* Adjust this value for spacing */
+      margin-top: 10px;
+    }
+
+    .choices {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #results-container {
+      display: none;
+    }
+
+    .shadow-container {
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    #try-again-btn {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div id="question1" class="question-container" style="display: block;">
+    <h3>If the driver of the vehicle in front of you is stretching his left arm out and gives you a hand signal pointing to the left, he will:</h3>
+    <div class="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(1, 'a')">Turn right</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(1, 'b')">Stop</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(1, 'c')">Turn left</button>
+    </div>
+  </div>
+
+  <div id="question2" class="question-container">
+    <h3>A continuous parallel double yellow line on the road means:</h3>
+    <div class="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(2, 'a')">You are allowed to overtake on the right side</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(2, 'b')">You are allowed to overtake on the left side</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(2, 'c')">It is dangerous to overtake</button>
+    </div>
+  </div>
+
+  <div id="question3" class="question-container">
+    <h3>If the driver of a vehicle in front of you is giving a hand signal by pointing his left hand upwards, he will surely:</h3>
+    <div class ="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(3, 'a')">Turn right</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(3, 'b')">Stop</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(3, 'c')">Turn left</button>
+    </div>
+  </div>
+
+  <div id="question4" class="question-container">
+    <h3>What should you do if a policeman stops you?</h3>
+    <div class="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(4, 'a.')">Stop and argue with the policeman.</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(4, 'b.')">Don’t mind the cop and drive faster.</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(4, 'c')">Stop and give the license and other papers for the vehicle if the policeman asks for it.</button>
+    </div>
+  </div>
+
+  <div id="question5" class="question-container">
+    <h3>The safest speed of a vehicle is according to:</h3>
+    <div class="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(5, 'a')">Road and weather conditions</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(5, 'b')">Condition of the vehicle</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(5, 'c')">Capability of the driver</button>
+    </div>
+  </div>
+
+  <div id="question6" class="question-container">
+    <h3>The necessary distance in between you and a vehicle you are following should be:</h3>
+    <div class="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(6, 'a')">The same length as a full vehicle</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(6, 'b')">The same length as three full vehicles</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(6, 'c')">The same length as two full vehicles</button>
+    </div>
+  </div>
+
+  <div id="question7" class="question-container">
+    <h3>A driver should give a signal when turning left or right on the road intersection in no less than:</h3>
+    <div class="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(7, 'a')">15 meters</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(7, 'b')">60 meters</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(7, 'c')">30 meters</button>
+    </div>
+  </div>
+
+  <div id="question8" class="question-container">
+    <h3>When riding a motorcycle and you would like to turn right, you should signal with:</h3>
+    <div class="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(8, 'a')">Your right hand pointing upward</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(8, 'b')">Your right hand pointing to the right</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(8, 'c')">Your left hand pointing upward</button>
+    </div>
+  </div>
+
+  <div id="question9" class="question-container">
+    <h3>Which place you should not overtake?</h3>
+    <div class="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(9, 'a')">In an intersection</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(9, 'b')">All answers are correct</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(9, 'c')">At the foot of the bridge</button>
+    </div>
+  </div>
+
+  <div id="question10" class="question-container">
+    <h3>There are two incoming vehicles on both sides of the street of an intersection with no traffic light, which vehicle should give way?</h3>
+    <div class="choices">
+      <button class="btn btn-primary choice" onclick="checkAnswer(10, 'a')">The first one to arrive</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(10, 'b')">The last one to arrive</button>
+      <button class="btn btn-primary choice" onclick="checkAnswer(10, 'c')">The first one to slow down</button>
+    </div>
+  </div>
+
+  <div class="text-center">
+</div>
+
+<div id="results-container" class="mt-3">
+  <div class="shadow-container">
+    <h3>Results</h3>
+    <div id="results"></div>
+    <button id="try-again-btn" class="btn btn-primary" onclick="restartQuiz()">Try Again</button>
+  </div>
+</div>
+</div>
+
+<script>
+let currentQuestion = 1;
+const totalQuestions = 10;
+const answers = {
+  1: null,
+  2: null,
+  3: null,
+  4: null,
+  5: null,
+  6: null,
+  7: null,
+  8: null,
+  9: null,
+  10: null,
+};
+
+function checkAnswer(question, choice) {
+  answers[question] = choice;
+
+  // Display the results after the final question
+  if (currentQuestion === totalQuestions) {
+    showResults();
+  } else {
+    // Move to the next question
+    document.getElementById(`question${currentQuestion}`).style.display = 'none';
+    currentQuestion++;
+    document.getElementById(`question${currentQuestion}`).style.display = 'block';
+  }
+}
+
+function getCorrectAnswer(question) {
+  // Replace this with the logic to get the correct answer for each question
+  switch (question) {
+    case 1:
+      return 'c';
+    case 2:
+      return 'c';
+    case 3:
+      return 'a';
+    case 4:
+      return 'c';
+    case 5:
+      return 'a';
+    case 6:
+      return 'a';
+    case 7:
+      return 'c';
+    case 8:
+      return 'c';
+    case 9:
+      return 'b';
+    case 10:
+      return 'b';
+    default:
+      return '';
+  }
+}
+
+function showResults() {
+  let correctCount = 0;
+  let resultHtml = '';
+
+  for (let i = 1; i <= totalQuestions; i++) {
+    const isCorrect = answers[i] === getCorrectAnswer(i);
+    resultHtml += `<p>Question ${i}: ${answers[i]} (${isCorrect ? 'Correct' : 'Incorrect'})</p>`;
+    if (isCorrect) {
+      correctCount++;
+    }
+  }
+
+  resultHtml += `<p>Total Correct: ${correctCount}</p>`;
+  resultHtml += `<p>Total Incorrect: ${totalQuestions - correctCount}</p>`;
+
+  document.getElementById('results').innerHTML = resultHtml;
+  document.getElementById('question10').style.display = 'none';
+  document.getElementById('results-container').style.display = 'block';
+}
+
+function restartQuiz() {
+  // Reset variables and display the first question
+  currentQuestion = 1;
+  for (let i = 1; i <= totalQuestions; i++) {
+    answers[i] = null;
+    document.getElementById(`question${i}`).style.display = 'none';
+  }
+  document.getElementById('question1').style.display = 'block';
+  document.getElementById('results-container').style.display = 'none';
+}
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
